@@ -7,6 +7,7 @@
 - css
 - JS
 - mySQL
+- Prisma
 
 # Autor
 - Arthur Soares  de Melo

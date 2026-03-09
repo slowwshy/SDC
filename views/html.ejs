@@ -12,6 +12,16 @@
 
     <button onclick= "Start()">Start</button>
 
+        <% users.forEach(usuarios => { %>
+            
+            <p>nome: <%= usuarios.Name %></p>
+            <p>idade: <%= usuarios.age %></p>
+            <p>socre: <%= usuarios.score %></p>
+   
+       <% }); %>
+    
+        
+
     <script src="/script.js"></script>
 </body>
 
