@@ -1,4 +1,9 @@
 function Start()
 {
-    alert("start");
+    var paper;
+    var rock;
+    var scissor;
+    var endGame = false;
+
+    alert(endGame);
 }
