@@ -9,14 +9,15 @@
  
 <body>
     <h1>Sistema de Cadastro</h1>
-
-    <button onclick= "Start()">Start</button>
+    <input type="text" id="msg">
+    <button onclick= "Start()" id="button">Start</button>
+    <p id="Emsg"> resposta </p>
 
         <% users.forEach(usuarios => { %>
             
             <p>nome: <%= usuarios.Name %></p>
             <p>idade: <%= usuarios.age %></p>
-            <p>socre: <%= usuarios.score %></p>
+            <p>score: <%= usuarios.score %></p>
    
        <% }); %>
     
