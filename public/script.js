@@ -1,11 +1,11 @@
 
-
+var score = 0
 function Start()
 {
     
     var PPT = ["pedra", "papel", "tesoura"]
     var endGame = false;
-    var score = 0
+    
     var text = document.getElementById("msg").value.toLowerCase().trim();
     var res2 = document.getElementById("Emsg")
 
@@ -26,13 +26,13 @@ function Start()
             else
             {
                 endGame = true
-                res2.innerHTML = "vc perdeu acabou o jogo, seu score: " + score
+                res2.innerHTML = `voce perdeu seu, seu score: ${score}`
                 
                 if(endGame = true)
                 {
 
                     document.getElementById("button").disabled = true
-
+                    finalGame()
                 }
         
             }
@@ -45,4 +45,8 @@ function Start()
     }
 
    
+}
+
+function finalGame(){
+    
 }

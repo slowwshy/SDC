@@ -3,6 +3,7 @@ const app = express();
 const {PrismaClient} = require("@prisma/client");
 const { where } = require('sequelize');
 const { error } = require('node:console');
+const { name } = require('ejs');
 const prisma = new PrismaClient();
 
 app.listen(3005, ()=>{
@@ -12,7 +13,7 @@ app.listen(3005, ()=>{
       }
       if(Error)
       {
-        console.log("ERROR!!!!!")
+        console.error("ERROR!!!!!")
       }
       
 });
@@ -44,17 +45,23 @@ app.get('/login', (req, res) =>{
       res.render("login")
 })
 
-app.post('/users', async () => {
+app.post('/users', async (req, res) => {
 
-   const email = req.body.email
+   const{ nome,  email } = req.body
    
 
-   await prisma.users.create({
+   await prisma.usuarios.create({
+      
       data:{
-            name: email,
+            email: email,
+            Name: nome,
             score: 0
 
-      }
-
+      } 
    })
+    res.redirect('/')
+})
+
+app.put('/result', async (req, res) =>{
+      
 })
