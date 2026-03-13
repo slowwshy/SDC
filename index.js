@@ -10,12 +10,14 @@ app.listen(3005, ()=>{
       {
        console.log("Server open")
       }
-      else if(app = error)
+      if(Error)
       {
-       console.log("ERROR!!!!!")
+        console.log("ERROR!!!!!")
       }
       
 });
+
+
 app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
