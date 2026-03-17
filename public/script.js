@@ -1,3 +1,4 @@
+const { pathToFileURL } = require("node:url");
 
 var score = 0
 function Start()
@@ -19,16 +20,29 @@ function Start()
             }
         else if((text === "pedra" && computador === "tesoura") || (text === "tesoura" && computador === "papel") || (text === "papel" && computador === "pedra"))
             {
+
                 res2.innerHTML = "vc ganhou"
-                score += 10
+                
+                score++
                 
             }
             else
             {
                 endGame = true
-                res2.innerHTML = `voce perdeu seu, seu score: ${score}`
+                res2.innerHTML = 'voce perdeu seu, seu score: '+ score
+
+                fetch("/result", {
+                   method: "PUT",
+                   headers: {
+                        "Content-Type": "application/json"
+                    },
+                        body: JSON.stringify({
+                        endGame: true
+                    })
+                   
+                })
                 
-                if(endGame = true)
+                if(endGame === true)
                 {
 
                     document.getElementById("button").disabled = true
@@ -46,6 +60,7 @@ function Start()
 
    
 }
+    
 
 function finalGame(){
     

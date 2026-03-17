@@ -6,15 +6,11 @@ const { error } = require('node:console');
 const { name } = require('ejs');
 const prisma = new PrismaClient();
 
+const points = prisma.usuarios.score;
+
 app.listen(3005, ()=>{
-      if(app)
-      {
+      
        console.log("Server open")
-      }
-      if(Error)
-      {
-        console.error("ERROR!!!!!")
-      }
       
 });
 
@@ -25,7 +21,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
-app.get('/', async (req, res) => {
+app.get('/', async (req, res) => { //read
 
       var users = await prisma.usuarios.findMany({
 
@@ -40,12 +36,12 @@ app.get('/', async (req, res) => {
  
 })
 
-app.get('/login', (req, res) =>{
+app.get('/login', (req, res) =>{  //read
 
       res.render("login")
 })
 
-app.post('/users', async (req, res) => {
+app.post('/users', async (req, res) => {  //create
 
    const{ nome,  email } = req.body
    
@@ -62,6 +58,20 @@ app.post('/users', async (req, res) => {
     res.redirect('/')
 })
 
-app.put('/result', async (req, res) =>{
-      
+app.put('/result', async (req, res) =>{ //update
+
+      let urPoints = req.body.endGame
+
+      if(urPoints)
+            {
+                  await prisma.usuarios.update({
+                        where: {id: 1},  
+                              data: {
+                                    score:{
+                                                increment: 1
+                                          }
+                                    }
+                  })
+            }
+
 })
