@@ -68,7 +68,7 @@ app.put('/result', async (req, res) =>{ //update
                         where: {id: 1},  
                               data: {
                                     score:{
-                                                increment: 1
+                                                increment: 10
                                           }
                                     }
                   })
