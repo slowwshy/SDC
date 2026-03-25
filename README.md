@@ -10,5 +10,5 @@
 - Prisma
 
 # Autor
-- Arthur Soares  de Melo
+- Arthur Soares de Melo
 - Account `slowwshy`
