@@ -7,15 +7,12 @@ function Start(event)
 {
     event.preventDefault();
     document.getElementById("reStart").disabled = true
-    var PPT = ["pedra", "papel", "tesoura"];
+    var PPT = ["pedra", "papel", "tesoura", "parazita", "arma", "moeda"];
     var text = document.getElementById("msg").value.toLowerCase().trim();
     var res2 = document.getElementById("Emsg");
 
-    
-
-    
-
-    if(text === "pedra" || text ==="papel" || text === "tesoura"){
+    if(text === "pedra" || text ==="papel" || text === "tesoura" 
+        || text === "arma" || text === "parazita" || text === "moeda"){
         
         var computador = PPT[Math.floor(Math.random() * PPT.length)];
         
@@ -23,7 +20,10 @@ function Start(event)
             {
                 res2.innerHTML = "Empate. Tente novamente."
             }
-        else if((text === "pedra" && computador === "tesoura") || (text === "tesoura" && computador === "papel") || (text === "papel" && computador === "pedra"))
+        else if((text === "pedra" && computador === "tesoura") || (text === "tesoura" && computador === "papel") || (text === "papel" && computador === "pedra") || 
+        (text === "arma" && computador === "parasita") || (text === "moeda" && computador === "arma") || (text === "parazita" && computador === "moeda") || 
+        (text === "papel" && computador === "moeda") || (text === "arma" && computador === "papel") || (text === "pedra" && computador === "arma") || 
+        (text === "parazita" && computador === "pedra") || (text === "tesoura" && computador === "parazita") || (text === "moeda" && computador === "tesoura"))
             {
                 endGame = true
                 var score = 0;
@@ -60,7 +60,6 @@ function Start(event)
 
                     
                 }
-            
           
     }
     else
