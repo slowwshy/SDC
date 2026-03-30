@@ -7,9 +7,10 @@ function Start(event)
 {
     event.preventDefault();
     document.getElementById("reStart").disabled = true
-    var PPT = ["pedra", "papel", "tesoura", "parazita", "arma", "moeda"];
+    var PPT = ["pedra", "papel", "tesoura", "parazita", "Arma", "moeda"];
     var text = document.getElementById("msg").value.toLowerCase().trim();
     var res2 = document.getElementById("Emsg");
+    var enemy = document.getElementById("oponent")
 
     if(text === "pedra" || text ==="papel" || text === "tesoura" 
         || text === "arma" || text === "parazita" || text === "moeda"){
@@ -18,17 +19,18 @@ function Start(event)
         
         if(text === computador)
             {
-                res2.innerHTML = "Empate. Tente novamente."
+                res2.innerHTML = "Empate. Voces escolheram o mesmo item, tente novamente."
             }
         else if((text === "pedra" && computador === "tesoura") || (text === "tesoura" && computador === "papel") || (text === "papel" && computador === "pedra") || 
-        (text === "arma" && computador === "parasita") || (text === "moeda" && computador === "arma") || (text === "parazita" && computador === "moeda") || 
-        (text === "papel" && computador === "moeda") || (text === "arma" && computador === "papel") || (text === "pedra" && computador === "arma") || 
+        (text === "Arma" && computador === "parasita") || (text === "moeda" && computador === "Arma") || (text === "parazita" && computador === "moeda") || 
+        (text === "papel" && computador === "moeda") || (text === "Arma" && computador === "papel") || (text === "pedra" && computador === "Arma") || 
         (text === "parazita" && computador === "pedra") || (text === "tesoura" && computador === "parazita") || (text === "moeda" && computador === "tesoura"))
             {
                 endGame = true
                 var score = 0;
                 score += 10
-                res2.innerHTML = `Voce ganhou!!! foi adicionado mais ${score} ao seu score.`
+                res2.innerHTML = `Voce ganhou!!! Foi adicionado mais ${score} ao seu score. O computador escolheu:`
+                enemy.innerHTML = `${computador}`
                 document.getElementById("button").disabled = true
                 
                 if(document.getElementById("button").disabled = true)
@@ -40,8 +42,8 @@ function Start(event)
             else
             {
                 
-                res2.innerHTML = `voce perdeu! Tente novamente.` 
-
+                res2.innerHTML = `voce perdeu! Tente novamente. Computador escolheu:` 
+                enemy.innerHTML = `${computador}`
         
             }
               if(endGame === true)

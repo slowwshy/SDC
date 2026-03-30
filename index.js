@@ -4,7 +4,9 @@ const {PrismaClient} = require("@prisma/client");
 const { where } = require('sequelize');
 const { error } = require('node:console');
 const { name } = require('ejs');
+const cookieParser = require('cookie-parser');
 const prisma = new PrismaClient();
+const cookie = require(cookieParser)
 
 const points = prisma.usuarios.score;
 

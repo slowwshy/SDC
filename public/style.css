@@ -4,4 +4,42 @@ body
     display: grid;
     height: 100vh;
     place-items: center; 
+    background-color: rgb(129, 129, 129); 
+}
+
+h1
+{
+    color: white;
+}
+
+h3
+{
+    color: white;
+}
+
+p
+{
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+}
+
+button
+{
+    cursor:pointer;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+#oponent
+{
+    
+    color: red;
+    font-size: large;
+   -webkit-text-stroke: 0.4px black;
+}
+
+input
+{
+    font-size: medium;
 }
