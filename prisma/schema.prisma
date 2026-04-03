@@ -9,9 +9,9 @@ datasource db {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model usuarios {
-  id Int @id @default(autoincrement())
-  score Int?
   Name  String? @db.Text
   age   Int?
   email String? @db.VarChar(255)
+  id    Int     @id @default(autoincrement())
+  score Int?
 }

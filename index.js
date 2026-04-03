@@ -6,13 +6,12 @@ const { error } = require('node:console');
 const { name } = require('ejs');
 const cookieParser = require('cookie-parser');
 const prisma = new PrismaClient();
-const cookie = require(cookieParser)
-
 const points = prisma.usuarios.score;
 
 app.listen(3005, ()=>{
       
        console.log("Server open")
+       
       
 });
 
