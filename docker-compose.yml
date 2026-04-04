@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    container_name: bfb426b0175b301fffea69d722f769efc02d9c4ee994bec0474828798d849a9d
+    working_dir: /app
+    volumes:
+      - .:/app
+    depends_on:
+        - db
+    environment:
+      DATABASE_URL: "mysql://root:app@db:3306/sistemaweb"
+    command: node index.js
+    ports:
+      - "3000:3005"
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sistemaweb
+    ports:
+      - "3307:3306"
+
+   
