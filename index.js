@@ -6,14 +6,7 @@ const { error } = require('node:console');
 const { name } = require('ejs');
 const cookieParser = require('cookie-parser');
 const prisma = new PrismaClient();
-const points = prisma.usuarios.score;
 
-app.listen(3005, ()=>{
-      
-       console.log("Server open")
-       
-      
-});
 
 
 app.set('view engine', 'ejs');
@@ -24,7 +17,7 @@ app.use(express.json())
 
 app.get('/', async (req, res) => { //read
 
-      var users = await prisma.usuarios.findMany({
+      const users = await prisma.usuarios.findMany({
 
          where: {Name: "joao",
                  age: 32,
@@ -33,8 +26,7 @@ app.get('/', async (req, res) => { //read
       })
 
       res.render("html", {users})
-   
- 
+
 })
 
 app.get('/login', (req, res) =>{  //read
@@ -76,3 +68,10 @@ app.put('/result', async (req, res) =>{ //update
             }
 
 })
+
+app.listen(3000, ()=>{
+      
+       console.log("Server open")
+       
+      
+});

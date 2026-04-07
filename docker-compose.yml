@@ -6,20 +6,36 @@ services:
     working_dir: /app
     volumes:
       - .:/app
+      - /app/node_modules
     depends_on:
-        - db
-    environment:
-      DATABASE_URL: "mysql://root:app@db:3306/sistemaweb"
+         db:
+             condition: service_healthy
+    env_file:
+      - .env
     command: node index.js
     ports:
-      - "3000:3005"
+      - "3000:3000"
+      - "5555:5555"
   db:
     image: mysql:8.0
     container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: app
+      MYSQL_PASSWORD: molly2205
       MYSQL_DATABASE: sistemaweb
     ports:
       - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -proot || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  mysql_data:
 
    
