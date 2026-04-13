@@ -69,9 +69,8 @@ app.put('/result', async (req, res) =>{ //update
 
 })
 
-app.listen(3000, ()=>{
+app.listen(3999, "0.0.0.0", ()=>{
       
        console.log("Server open")
-       
       
 });
